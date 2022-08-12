@@ -29,31 +29,14 @@ const requests = [
     time: 24,
     priority: "urgent",
   },
-
 ];
 
 const chart = [
-  1.1,
-  3,
-  1.5,
-  2.3,
-  3.2,
-  7,
-  8.2,
-  1.2,
-  2,
-  1.2,
-  8,
-  3.8,
-  5.8,
-  3.9,
-  5.1,
-  0.1,
-  6
+  1.1, 3, 1.5, 2.3, 3.2, 7, 8.2, 1.2, 1.5, 1.2, 8, 3.8, 5.8, 3.9, 5.1, 0.1, 1,
 ];
 
 const user = {
-  avatar: require('./assets/avatar.png')
+  avatar: require("./assets/avatar.png"),
 };
 
-export { requests, chart, user }
+export { requests, chart, user };

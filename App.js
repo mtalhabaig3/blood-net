@@ -4,7 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import * as Font from "expo-font";
 import { LineChart, Path } from "react-native-svg-charts";
@@ -17,7 +17,7 @@ import * as mocks from "./mocks";
 
 class App extends React.Component {
   state = {
-    fontsLoaded: false
+    fontsLoaded: false,
   };
 
   loadFonts() {
@@ -26,7 +26,7 @@ class App extends React.Component {
       "Montserrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
       "Montserrat-SemiBold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
       "Montserrat-Medium": require("./assets/fonts/Montserrat-Medium.ttf"),
-      "Montserrat-Light": require("./assets/fonts/Montserrat-Light.ttf")
+      "Montserrat-Light": require("./assets/fonts/Montserrat-Light.ttf"),
     });
   }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
         curve={shape.curveMonotoneX}
         svg={{
           stroke: theme.colors.primary,
-          strokeWidth: 1.25
+          strokeWidth: 1.25,
         }}
         contentInset={{ left: theme.sizes.base, right: theme.sizes.base }}
       >
@@ -169,7 +169,7 @@ class App extends React.Component {
           </TouchableOpacity>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {requests.map(request => (
+          {requests.map((request) => (
             <TouchableOpacity activeOpacity={0.8} key={`request-${request.id}`}>
               {this.renderRequest(request)}
             </TouchableOpacity>
@@ -203,7 +203,7 @@ class App extends React.Component {
 App.defaultProps = {
   user: mocks.user,
   requests: mocks.requests,
-  chart: mocks.chart
+  chart: mocks.chart,
 };
 
 export default App;
@@ -211,36 +211,36 @@ export default App;
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: theme.colors.primary
+    backgroundColor: theme.colors.primary,
   },
   headerChart: {
     paddingTop: 30,
     paddingBottom: 30,
-    zIndex: 1
+    zIndex: 1,
   },
   avatar: {
     width: 25,
     height: 25,
     borderRadius: 25 / 2,
-    marginRight: 5
+    marginRight: 5,
   },
   requests: {
     marginTop: -55,
     paddingTop: 55 + 20,
     paddingHorizontal: 15,
-    zIndex: -1
+    zIndex: -1,
   },
   requestsHeader: {
     paddingHorizontal: 20,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   request: {
     padding: 20,
-    marginBottom: 15
+    marginBottom: 15,
   },
   requestStatus: {
     marginRight: 20,
     overflow: "hidden",
-    height: 90
-  }
+    height: 90,
+  },
 });

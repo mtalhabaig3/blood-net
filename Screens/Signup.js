@@ -29,7 +29,7 @@ export default function Signup({ navigation }) {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
 
-  function onSignUpPressed() {
+  async function onSignUpPressed() {
     const displayNameError = nameValidator(displayName.value);
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
@@ -64,9 +64,9 @@ export default function Signup({ navigation }) {
       { cancelable: false }
     );
     await Promise.all([
-        updateProfile(user, userData),
-        setDoc(doc(db, "users", user.uid), { ...userData, uid: user.uid }),
-      ]);
+      updateProfile(user, userData),
+      setDoc(doc(db, "users", user.uid), { ...userData, uid: user.uid }),
+    ]);
   }
 
   return (

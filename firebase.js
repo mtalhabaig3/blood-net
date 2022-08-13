@@ -13,12 +13,12 @@ import { initializeFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCH144KqQmtmOr8Z2tQb3fyFCbG46a1noc",
-  authDomain: "travelnet-82c4b.firebaseapp.com",
-  projectId: "travelnet-82c4b",
-  storageBucket: "travelnet-82c4b.appspot.com",
-  messagingSenderId: "945252896033",
-  appId: "1:945252896033:web:a9a15eb5f38c26b610c260",
+  apiKey: "AIzaSyB-gWHjG0SKdRbzwzeeV3sSllOMTUxCjto",
+  authDomain: "bloodnet-4921e.firebaseapp.com",
+  projectId: "bloodnet-4921e",
+  storageBucket: "bloodnet-4921e.appspot.com",
+  messagingSenderId: "1054896775920",
+  appId: "1:1054896775920:web:5048d7f59dccdfdc1d5835",
 };
 
 // Initialize Firebase

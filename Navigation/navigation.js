@@ -6,6 +6,7 @@ import Welcome from "../Screens/Welcome";
 import Signup from "../Screens/Signup";
 import Login from "../Screens/Login";
 import Requests from "../Screens/Requests";
+import { auth } from "../firebase";
 
 const Stack = createNativeStackNavigator();
 

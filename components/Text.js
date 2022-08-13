@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet } from 'react-native'
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
 
-import * as theme from '../theme';
+import * as theme from "../theme";
 
 export default class Typography extends Component {
   render() {
@@ -44,7 +44,7 @@ export default class Typography extends Component {
       body && styles.body,
       caption && styles.caption,
       small && styles.small,
-      size && { fontSize: size, },
+      size && { fontSize: size },
       bold && styles.bold,
       semibold && styles.semibold,
       light && styles.light,
@@ -61,14 +61,14 @@ export default class Typography extends Component {
       white && styles.white,
       gray && styles.gray,
       gray2 && styles.gray2,
-      style // rewrite predefined styles
+      style, // rewrite predefined styles
     ];
 
     return (
       <Text style={textStyles} {...props}>
         {children}
       </Text>
-    )
+    );
   }
 }
 
@@ -77,20 +77,20 @@ const styles = StyleSheet.create({
   text: {
     // fontFamily: "Montserrat-Regular",
     fontSize: theme.sizes.font,
-    color: theme.colors.black
+    color: theme.colors.black,
   },
   // variations
   bold: {
     fontWeight: "bold",
-    fontFamily: "Montserrat-Bold"
+    fontFamily: "Montserrat-Bold",
   },
   semibold: {
     fontWeight: "500",
-    fontFamily: "Montserrat-SemiBold"
+    fontFamily: "Montserrat-SemiBold",
   },
   light: {
     fontWeight: "200",
-    fontFamily: "Montserrat-Light"
+    fontFamily: "Montserrat-Light",
   },
   // position
   center: { textAlign: "center" },
@@ -111,5 +111,5 @@ const styles = StyleSheet.create({
   title: theme.fonts.title,
   body: theme.fonts.body,
   caption: theme.fonts.caption,
-  small: theme.fonts.small
+  small: theme.fonts.small,
 });

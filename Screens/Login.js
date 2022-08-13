@@ -30,7 +30,7 @@ export default function Login({ navigation }) {
     <Background>
       <BackButton goBack={() => navigation.goBack()} />
       <Logo />
-      <Header>Login!</Header>
+      <Header>LOGIN</Header>
       <TextInput
         label="Email"
         returnKeyType="next"

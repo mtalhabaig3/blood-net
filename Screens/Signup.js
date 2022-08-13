@@ -55,33 +55,7 @@ export default function Signup({ navigation }) {
     <Background>
       <BackButton goBack={() => navigation.goBack()} />
       <Logo />
-      <Header>Create Account</Header>
-      <TouchableOpacity
-        onPress={handleProfilePicture}
-        style={{
-          marginTop: 10,
-          borderRadius: 120,
-          width: 80,
-          height: 80,
-          backgroundColor: "#198ace",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {!selectedImage ? (
-          <MaterialCommunityIcons
-            name="camera-plus"
-            color="white"
-            size={45}
-            style={{ paddingBottom: 5 }}
-          />
-        ) : (
-          <Image
-            source={{ uri: selectedImage }}
-            style={{ width: "100%", height: "100%", borderRadius: 120 }}
-          />
-        )}
-      </TouchableOpacity>
+      <Header>CREATE ACCOUNT</Header>
       <TextInput
         label="Name"
         returnKeyType="next"
@@ -114,13 +88,13 @@ export default function Signup({ navigation }) {
       <Button
         mode="contained"
         onPress={onSignUpPressed}
-        style={{ marginTop: 24 }}
+        // style={{ marginTop: 24 }}
       >
         Sign Up
       </Button>
       <View style={styles.row}>
         <Text>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace("LoginScreen")}>
+        <TouchableOpacity onPress={() => navigation.replace("Login")}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -135,6 +109,6 @@ const styles = StyleSheet.create({
   },
   link: {
     fontWeight: "bold",
-    color: "#198ace",
+    color: "#f72b2b",
   },
 });

@@ -8,8 +8,8 @@ export default function TextInput({ errorText, description, ...props }) {
     <View style={styles.container}>
       <Input
         style={styles.input}
-        activeOutlineColor="#198ace"
-        selectionColor="#198ace"
+        activeOutlineColor="#f72b2b"
+        selectionColor="#f72b2b"
         underlineColor="transparent"
         mode="outlined"
         {...props}

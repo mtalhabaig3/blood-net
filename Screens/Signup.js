@@ -15,11 +15,14 @@ import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import BackButton from "../components/BackButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 import { theme } from "../core/theme";
 import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
 import { nameValidator } from "../helpers/nameValidator";
+import { signUp } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "@firebase/firestore";
+import { updateProfile } from "@firebase/auth";
 
 export default function Signup({ navigation }) {
   const [displayName, setDisplayName] = useState({ value: "", error: "" });
@@ -39,6 +42,17 @@ export default function Signup({ navigation }) {
     }
     Keyboard.dismiss();
 
+    await signUp(email.value, password.value);
+
+    const user = auth.currentUser;
+
+    let name = displayName.value;
+
+    const userData = {
+      displayName: name,
+      email: user.email,
+    };
+
     Alert.alert(
       "Success!",
       "Account created!",
@@ -49,6 +63,10 @@ export default function Signup({ navigation }) {
       ],
       { cancelable: false }
     );
+    await Promise.all([
+        updateProfile(user, userData),
+        setDoc(doc(db, "users", user.uid), { ...userData, uid: user.uid }),
+      ]);
   }
 
   return (

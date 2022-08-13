@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Welcome from "../Screens/Welcome";
 import Signup from "../Screens/Signup";
 import Login from "../Screens/Login";
-import Requests from "../Screens/Requests";
+import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
 import { auth } from "../firebase";
 
@@ -38,10 +38,10 @@ const Navigation = () => {
           <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>
       ) : (
-        <Stack.Navigator initialRouteName="List">
+        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
-            name="Requests"
-            component={Requests}
+            name="Home"
+            component={Home}
             options={{
               headerShown: false,
             }}

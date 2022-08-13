@@ -36,7 +36,7 @@ const chart = [
 ];
 
 const user = {
-  avatar: require("./assets/avatar.png"),
+  avatar: require("../assets/avatar.png"),
 };
 
 export { requests, chart, user };

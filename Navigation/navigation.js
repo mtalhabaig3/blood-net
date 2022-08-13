@@ -6,6 +6,7 @@ import Welcome from "../Screens/Welcome";
 import Signup from "../Screens/Signup";
 import Login from "../Screens/Login";
 import Requests from "../Screens/Requests";
+import Profile from "../Screens/Profile";
 import { auth } from "../firebase";
 
 const Stack = createNativeStackNavigator();
@@ -33,7 +34,7 @@ const Navigation = () => {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Welcome" component={Welcome} />
-          <Stack.Screen name="LoginScreen" component={Login} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>
       ) : (
@@ -41,6 +42,13 @@ const Navigation = () => {
           <Stack.Screen
             name="Requests"
             component={Requests}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
             options={{
               headerShown: false,
             }}

@@ -13,9 +13,9 @@ import * as shape from "d3-shape";
 
 import { Block, Text } from "../components";
 import * as theme from "../theme";
-import * as mocks from "../mocks";
+import * as mocks from "../core/mocks";
 
-const Requests = ({ chart, user, requests }) => {
+const Requests = ({ chart, user, requests, navigation }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   function loadFonts() {
@@ -84,7 +84,9 @@ const Requests = ({ chart, user, requests }) => {
               Blood Requests
             </Text>
           </Block>
-          <Image style={styles.avatar} source={user.avatar} />
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Image style={styles.avatar} source={user.avatar} />
+          </TouchableOpacity>
         </Block>
         <Block card shadow color="white" style={styles.headerChart}>
           <Block row space="between" style={{ paddingHorizontal: 30 }}>

@@ -12,18 +12,21 @@ import * as mocks from "../core/mocks";
 import { Block, Text } from "../components";
 import * as theme from "../theme";
 
-const Requests = ({ navigation, allRequests }) => {
+const Availables = ({ navigation, allAvailables }) => {
   function renderRequests() {
     return (
       <Block flex={1} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
-          <Text h1>Acceptors</Text>
+          <Text h1>Donors</Text>
           <TouchableOpacity activeOpacity={0.8}></TouchableOpacity>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {allRequests.map((request) => (
-            <TouchableOpacity activeOpacity={0.8} key={`request-${request.id}`}>
-              {renderRequest(request)}
+          {allAvailables.map((available) => (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={`request-${available.id}`}
+            >
+              {renderRequest(available)}
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -71,10 +74,10 @@ const Requests = ({ navigation, allRequests }) => {
   );
 };
 
-Requests.defaultProps = {
-  allRequests: mocks.allRequests,
+Availables.defaultProps = {
+  allAvailables: mocks.allAvailables,
 };
-export default Requests;
+export default Availables;
 
 const styles = StyleSheet.create({
   safe: {

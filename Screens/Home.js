@@ -15,7 +15,7 @@ import { Block, Text } from "../components";
 import * as theme from "../theme";
 import * as mocks from "../core/mocks";
 
-const Home = ({ chart, user, requests, navigation }) => {
+const Home = ({ chart, user, requests, navigation, donations }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   function loadFonts() {
@@ -77,7 +77,7 @@ const Home = ({ chart, user, requests, navigation }) => {
 
   function renderHeader() {
     return (
-      <Block flex={0.42} column style={{ paddingHorizontal: 15 }}>
+      <Block flex={0.35} column style={{ paddingHorizontal: 15 }}>
         <Block flex={false} row style={{ paddingVertical: 15 }}>
           <Block center>
             <Text h3 white style={{ marginRight: -(25 + 5) }}>
@@ -126,7 +126,7 @@ const Home = ({ chart, user, requests, navigation }) => {
     return (
       <Block row card shadow color="white" style={styles.request}>
         <Block
-          flex={0.25}
+          flex={0.15}
           card
           column
           color="secondary"
@@ -137,19 +137,18 @@ const Home = ({ chart, user, requests, navigation }) => {
               {request.priority}
             </Text>
           </Block>
-          <Block flex={0.7} center middle>
+          <Block flex={0.7} middle center>
             <Text h2 white>
               {request.bloodType}
             </Text>
           </Block>
         </Block>
         <Block flex={0.75} column middle>
-          <Text h3 style={{ paddingVertical: 8 }}>
+          <Text h3 style={{ paddingVertical: 3, fontSize: 15 }}>
             {request.name}
           </Text>
-          <Text caption semibold>
-            {request.age} • {request.gender} • {request.distance}km •{" "}
-            {request.time}hrs
+          <Text caption semibold style={{ paddingVertical: 1, fontSize: 12 }}>
+            {request.age} , {request.gender} , {request.distance}km
           </Text>
         </Block>
       </Block>
@@ -158,10 +157,13 @@ const Home = ({ chart, user, requests, navigation }) => {
 
   function renderRequests() {
     return (
-      <Block flex={0.8} column color="gray2" style={styles.requests}>
+      <Block flex={0.4} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
-          <Text light>Recent Updates</Text>
-          <TouchableOpacity activeOpacity={0.8}>
+          <Text light>Recent Acceptors</Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Requests")}
+          >
             <Text semibold>View All</Text>
           </TouchableOpacity>
         </Block>
@@ -169,6 +171,32 @@ const Home = ({ chart, user, requests, navigation }) => {
           {requests.map((request) => (
             <TouchableOpacity activeOpacity={0.8} key={`request-${request.id}`}>
               {renderRequest(request)}
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </Block>
+    );
+  }
+
+  function renderAvaiables() {
+    return (
+      <Block flex={0.28} column color="gray2" style={styles.requests2}>
+        <Block flex={false} row space="between" style={styles.requestsHeader}>
+          <Text light>Recent Donors</Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Availables")}
+          >
+            <Text semibold>View All</Text>
+          </TouchableOpacity>
+        </Block>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {donations.map((donation) => (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={`donation-${donation.id}`}
+            >
+              {renderRequest(donation)}
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -191,6 +219,7 @@ const Home = ({ chart, user, requests, navigation }) => {
     <SafeAreaView style={styles.safe}>
       {renderHeader()}
       {renderRequests()}
+      {renderAvaiables()}
     </SafeAreaView>
   );
 };
@@ -198,6 +227,7 @@ const Home = ({ chart, user, requests, navigation }) => {
 Home.defaultProps = {
   user: mocks.user,
   requests: mocks.requests,
+  donations: mocks.donations,
   chart: mocks.chart,
 };
 
@@ -214,9 +244,9 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   avatar: {
-    width: 25,
-    height: 25,
-    borderRadius: 25 / 2,
+    width: 30,
+    height: 30,
+    borderRadius: 30 / 2,
     marginRight: 5,
   },
   requests: {
@@ -225,17 +255,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     zIndex: -1,
   },
+  requests2: {
+    paddingHorizontal: 15,
+    marginTop: -30,
+  },
   requestsHeader: {
     paddingHorizontal: 20,
     paddingBottom: 15,
   },
   request: {
-    padding: 20,
-    marginBottom: 15,
+    padding: 10,
+    marginBottom: 10,
   },
   requestStatus: {
     marginRight: 20,
     overflow: "hidden",
-    height: 90,
+    height: 50,
   },
 });

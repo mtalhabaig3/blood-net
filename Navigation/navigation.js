@@ -7,6 +7,9 @@ import Signup from "../Screens/Signup";
 import Login from "../Screens/Login";
 import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
+import Requests from "../Screens/Requests";
+import Availables from "../Screens/Availables";
+
 import { auth } from "../firebase";
 
 const Stack = createNativeStackNavigator();
@@ -49,6 +52,21 @@ const Navigation = () => {
           <Stack.Screen
             name="Profile"
             component={Profile}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Requests"
+            component={Requests}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="Availables"
+            component={Availables}
             options={{
               headerShown: false,
             }}

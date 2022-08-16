@@ -8,7 +8,9 @@ import Login from "../Screens/Login";
 import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
 import Requests from "../Screens/Requests";
+import Request from "../Screens/Request";
 import Availables from "../Screens/Availables";
+import Available from "../Screens/Available";
 
 import { auth } from "../firebase";
 
@@ -63,10 +65,25 @@ const Navigation = () => {
               headerShown: false,
             }}
           />
+          <Stack.Screen
+            name="Request"
+            component={Request}
+            options={{
+              headerShown: false,
+            }}
+          />
 
           <Stack.Screen
             name="Availables"
             component={Availables}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="Available"
+            component={Available}
             options={{
               headerShown: false,
             }}

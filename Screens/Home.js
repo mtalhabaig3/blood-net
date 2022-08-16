@@ -169,7 +169,11 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
           {requests.map((request) => (
-            <TouchableOpacity activeOpacity={0.8} key={`request-${request.id}`}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={`request-${request.id}`}
+              onPress={() => navigation.navigate("Request", { request })}
+            >
               {renderRequest(request)}
             </TouchableOpacity>
           ))}
@@ -195,6 +199,9 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
             <TouchableOpacity
               activeOpacity={0.8}
               key={`donation-${donation.id}`}
+              onPress={() =>
+                navigation.navigate("Available", { available: donation })
+              }
             >
               {renderRequest(donation)}
             </TouchableOpacity>

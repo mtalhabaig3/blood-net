@@ -84,6 +84,16 @@ const Available = ({ navigation, route }) => {
           </View>
           <View style={styles.row}>
             <MaterialCommunityIcons
+              name="map-marker-distance"
+              color="#f72b2b"
+              size={20}
+            />
+            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 16 }}>
+              {available.time} km
+            </Text>
+          </View>
+          <View style={styles.row}>
+            <MaterialCommunityIcons
               name="calendar-account"
               color="#f72b2b"
               size={20}
@@ -98,16 +108,7 @@ const Available = ({ navigation, route }) => {
               {available.distance} hrs
             </Text>
           </View>
-          <View style={styles.row}>
-            <MaterialCommunityIcons
-              name="map-marker-distance"
-              color="#f72b2b"
-              size={20}
-            />
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 16 }}>
-              {available.time} km
-            </Text>
-          </View>
+
           <View style={styles.row}>
             <Fontisto name="blood-drop" color="#f72b2b" size={20} />
             <Text style={{ color: "#777777", marginLeft: 28, fontSize: 16 }}>

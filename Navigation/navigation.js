@@ -11,7 +11,7 @@ import Requests from "../Screens/Requests";
 import Request from "../Screens/Request";
 import Availables from "../Screens/Availables";
 import Available from "../Screens/Available";
-
+import Apply from "../Screens/Apply";
 import { auth } from "../firebase";
 
 const Stack = createNativeStackNavigator();
@@ -84,6 +84,14 @@ const Navigation = () => {
           <Stack.Screen
             name="Available"
             component={Available}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="Apply"
+            component={Apply}
             options={{
               headerShown: false,
             }}

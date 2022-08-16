@@ -93,12 +93,6 @@ const Request = ({ navigation, route }) => {
             </Text>
           </View>
           <View style={styles.row}>
-            <Ionicons name="time-outline" color="#f72b2b" size={20} />
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 16 }}>
-              {request.distance} hrs
-            </Text>
-          </View>
-          <View style={styles.row}>
             <MaterialCommunityIcons
               name="map-marker-distance"
               color="#f72b2b"
@@ -108,6 +102,13 @@ const Request = ({ navigation, route }) => {
               {request.time} km
             </Text>
           </View>
+          <View style={styles.row}>
+            <Ionicons name="time-outline" color="#f72b2b" size={20} />
+            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 16 }}>
+              {request.distance} hrs
+            </Text>
+          </View>
+
           <View style={styles.row}>
             <Fontisto name="blood-drop" color="#f72b2b" size={20} />
             <Text style={{ color: "#777777", marginLeft: 28, fontSize: 16 }}>

@@ -10,7 +10,7 @@ import * as Font from "expo-font";
 import { LineChart, Path } from "react-native-svg-charts";
 import { Line } from "react-native-svg";
 import * as shape from "d3-shape";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Block, Text } from "../components";
 import * as theme from "../theme";
 import * as mocks from "../core/mocks";
@@ -159,7 +159,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
     return (
       <Block flex={0.4} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
-          <Text light>Recent Acceptors</Text>
+          <Text light>Recent Requests</Text>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigation.navigate("Requests")}
@@ -227,6 +227,27 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
       {renderHeader()}
       {renderRequests()}
       {renderAvaiables()}
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Apply")}
+        style={{
+          position: "absolute",
+          left: 30,
+          top: 65,
+          borderRadius: 35 / 2,
+          width: 35,
+          height: 35,
+          backgroundColor: theme.colors.white,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name="account"
+          color={theme.colors.primary}
+          size={theme.sizes.font * 2}
+        />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -251,9 +272,9 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   avatar: {
-    width: 30,
-    height: 30,
-    borderRadius: 30 / 2,
+    width: 35,
+    height: 35,
+    borderRadius: 35 / 2,
     marginRight: 5,
   },
   requests: {

@@ -22,7 +22,11 @@ const Requests = ({ navigation, allRequests }) => {
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
           {allRequests.map((request) => (
-            <TouchableOpacity activeOpacity={0.8} key={`request-${request.id}`}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={`request-${request.id}`}
+              onPress={() => navigation.navigate("Request", { request })}
+            >
               {renderRequest(request)}
             </TouchableOpacity>
           ))}

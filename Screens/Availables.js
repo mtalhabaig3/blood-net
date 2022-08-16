@@ -25,6 +25,7 @@ const Availables = ({ navigation, allAvailables }) => {
             <TouchableOpacity
               activeOpacity={0.8}
               key={`request-${available.id}`}
+              onPress={() => navigation.navigate("Available", { available })}
             >
               {renderRequest(available)}
             </TouchableOpacity>

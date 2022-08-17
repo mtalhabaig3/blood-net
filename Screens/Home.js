@@ -11,7 +11,7 @@ import * as Font from "expo-font";
 import { LineChart, Path } from "react-native-svg-charts";
 import { Line } from "react-native-svg";
 import * as shape from "d3-shape";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 import { Block, Text } from "../components";
 import * as theme from "../theme";
 import * as mocks from "../core/mocks";
@@ -85,7 +85,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
         <Block flex={false} row style={{ paddingVertical: 15 }}>
           <Block center>
             <Text h3 white style={{ marginRight: -(25 + 5) }}>
-              Home
+              Blood Net
             </Text>
           </Block>
           <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
@@ -95,16 +95,16 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
         <Block card shadow color="white" style={styles.headerChart}>
           <Block row space="between" style={{ paddingHorizontal: 30 }}>
             <Block flex={false} row center>
-              <Text h1>291</Text>
+              <Text h1>{mocks.allRequests.length}</Text>
               <Text caption bold tertiary style={{ paddingHorizontal: 10 }}>
-                -12%
+                -5%
               </Text>
             </Block>
             <Block flex={false} row center>
               <Text caption bold primary style={{ paddingHorizontal: 10 }}>
-                +49%
+                +11%
               </Text>
-              <Text h1>481</Text>
+              <Text h1>{mocks.allAvailables.length}</Text>
             </Block>
           </Block>
           <Block
@@ -161,7 +161,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
 
   function renderRequests() {
     return (
-      <Block flex={0.34} column color="gray2" style={styles.requests}>
+      <Block flex={0.33} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
           <Text light>Recent Requests</Text>
           <TouchableOpacity
@@ -188,7 +188,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
 
   function renderAvaiables() {
     return (
-      <Block flex={0.29} column color="gray2" style={styles.requests2}>
+      <Block flex={0.28} column color="gray2" style={styles.requests2}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
           <Text light>Recent Donors</Text>
           <TouchableOpacity
@@ -233,24 +233,25 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
       {renderAvaiables()}
 
       <TouchableOpacity
-        onPress={() => navigation.navigate("Apply")}
+        onPress={() => navigation.navigate("Option")}
         style={{
           position: "absolute",
           left: 30,
-          top: 65,
-          borderRadius: 35 / 2,
-          width: 35,
-          height: 35,
+          top: 50,
+          borderRadius: 50 / 2,
+          width: 50,
+          height: 50,
           backgroundColor: theme.colors.white,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <MaterialCommunityIcons
-          name="account"
+        <Fontisto
+          name="blood-drop"
           color={theme.colors.primary}
-          size={theme.sizes.font * 2}
+          size={theme.sizes.font * 2.8}
         />
+        {/* <Text style={{ color: "black" }}>Interact</Text> */}
       </TouchableOpacity>
     </SafeAreaView>
   );

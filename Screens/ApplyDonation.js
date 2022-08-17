@@ -1,5 +1,3 @@
-// App.js
-
 import React, { Component } from "react";
 import {
   TextInput,
@@ -14,8 +12,9 @@ import * as yup from "yup";
 import BackButton from "../components/BackButton";
 import { Formik } from "formik";
 import * as mocks from "../core/mocks";
+import * as theme from "../theme";
 
-const Apply = ({ navigation }) => {
+const ApplyDonation = ({ navigation }) => {
   const inputStyle = {
     borderWidth: 1,
     borderColor: "#4e4e4e",
@@ -32,6 +31,7 @@ const Apply = ({ navigation }) => {
     console.log(temp);
     mocks.allRequests.unshift(temp);
     Alert.alert("done");
+    navigation.pop(2);
   }
 
   return (
@@ -154,8 +154,8 @@ const Apply = ({ navigation }) => {
               </Text>
             )}
             <Button
-              color="#3740FE"
-              title="Submit"
+              color={theme.colors.primary}
+              title="Donate"
               disabled={!isValid}
               onPress={handleSubmit}
             />
@@ -167,7 +167,7 @@ const Apply = ({ navigation }) => {
   );
 };
 
-export default Apply;
+export default ApplyDonation;
 const styles = StyleSheet.create({
   formContainer: {
     padding: 50,

@@ -110,7 +110,7 @@ const Request = ({ navigation, route }) => {
           </View>
 
           <View style={styles.row}>
-            <Fontisto name="blood-drop" color="#f72b2b" size={20} />
+            <Fontisto name="blood-test" color="#f72b2b" size={20} />
             <Text style={{ color: "#777777", marginLeft: 28, fontSize: 16 }}>
               {request.bloodType}
             </Text>

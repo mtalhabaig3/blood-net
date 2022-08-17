@@ -108,7 +108,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 28,
     time: 12,
-    priority: "urgent",
   },
   {
     id: 2,
@@ -120,7 +119,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 10,
     time: 22,
-    priority: "urgent",
   },
   {
     id: 3,
@@ -132,7 +130,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 15.3,
     time: 24,
-    priority: "urgent",
   },
   {
     id: 4,
@@ -144,7 +141,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 28,
     time: 12,
-    priority: "urgent",
   },
   {
     id: 5,
@@ -156,7 +152,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 10,
     time: 22,
-    priority: "urgent",
   },
   {
     id: 6,
@@ -168,7 +163,6 @@ const allAvailables = [
     contact: "091-1234567892",
     distance: 15.3,
     time: 24,
-    priority: "urgent",
   },
 ];
 

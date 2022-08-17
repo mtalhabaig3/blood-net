@@ -13,7 +13,7 @@ import { Block, Text } from "../components";
 import * as theme from "../theme";
 
 const Availables = ({ navigation, allAvailables }) => {
-  function renderRequests() {
+  function renderAvailables() {
     return (
       <Block flex={1} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
@@ -27,14 +27,14 @@ const Availables = ({ navigation, allAvailables }) => {
               key={`request-${available.id}`}
               onPress={() => navigation.navigate("Available", { available })}
             >
-              {renderRequest(available)}
+              {renderAvailable(available)}
             </TouchableOpacity>
           ))}
         </ScrollView>
       </Block>
     );
   }
-  function renderRequest(request) {
+  function renderAvailable(request) {
     return (
       <Block row card shadow color="white" style={styles.request}>
         <Block
@@ -44,12 +44,7 @@ const Availables = ({ navigation, allAvailables }) => {
           color="secondary"
           style={styles.requestStatus}
         >
-          <Block flex={0.25} middle center color={theme.colors.primary}>
-            <Text small white style={{ textTransform: "uppercase" }}>
-              {request.priority}
-            </Text>
-          </Block>
-          <Block flex={0.7} middle center>
+          <Block middle center>
             <Text h2 white>
               {request.bloodType}
             </Text>
@@ -69,7 +64,7 @@ const Availables = ({ navigation, allAvailables }) => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      {renderRequests()}
+      {renderAvailables()}
       <BackButton goBack={() => navigation.goBack()} />
     </SafeAreaView>
   );

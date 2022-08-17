@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import {
-  TextInput,
   Text,
   Button,
   Alert,
   View,
   StyleSheet,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
+import TextInput from "../components/TextInput";
 import * as yup from "yup";
 import BackButton from "../components/BackButton";
 import { Formik } from "formik";
@@ -15,21 +16,16 @@ import * as mocks from "../core/mocks";
 import * as theme from "../theme";
 
 const ApplyDonation = ({ navigation }) => {
-  const inputStyle = {
-    borderWidth: 1,
-    borderColor: "#4e4e4e",
-    padding: 12,
-    marginBottom: 5,
-  };
+  const inputStyle = {};
 
   function changingObject(values) {
     const temp = { ...values };
-    temp.id = mocks.allRequests.length + 1;
+    temp.id = mocks.allAvailables.length + 1;
     temp.distance = 44;
     temp.time = 2;
 
     console.log(temp);
-    mocks.allRequests.unshift(temp);
+    mocks.allAvailables.unshift(temp);
     Alert.alert("done");
     navigation.pop(2);
   }
@@ -44,7 +40,6 @@ const ApplyDonation = ({ navigation }) => {
           location: "",
           contact: "",
           bloodType: "",
-          priority: "",
         }}
         onSubmit={(values) => {
           changingObject(values);
@@ -56,7 +51,6 @@ const ApplyDonation = ({ navigation }) => {
           location: yup.string().required(),
           contact: yup.number().required(),
           bloodType: yup.string().required(),
-          priority: yup.string().required(),
         })}
       >
         {({
@@ -70,10 +64,11 @@ const ApplyDonation = ({ navigation }) => {
         }) => (
           <View style={styles.formContainer}>
             <TextInput
+              label="Name"
               value={values.name}
               style={inputStyle}
               onChangeText={handleChange("name")}
-              onBlur={() => setFieldTouched("name")}
+              // onBlur={() => setFieldTouched("name")}
               placeholder="Name"
             />
             {touched.name && errors.name && (
@@ -82,10 +77,11 @@ const ApplyDonation = ({ navigation }) => {
               </Text>
             )}
             <TextInput
+              label="age"
               value={values.age}
               style={inputStyle}
               onChangeText={handleChange("age")}
-              onBlur={() => setFieldTouched("age")}
+              // onBlur={() => setFieldTouched("age")}
               placeholder="age"
             />
             {touched.age && errors.age && (
@@ -94,11 +90,12 @@ const ApplyDonation = ({ navigation }) => {
               </Text>
             )}
             <TextInput
+              label="gender"
               value={values.gender}
               style={inputStyle}
               onChangeText={handleChange("gender")}
               placeholder="gender"
-              onBlur={() => setFieldTouched("gender")}
+              // onBlur={() => setFieldTouched("gender")}
             />
             {touched.gender && errors.gender && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -106,11 +103,12 @@ const ApplyDonation = ({ navigation }) => {
               </Text>
             )}
             <TextInput
+              label="location"
               value={values.location}
               style={inputStyle}
               onChangeText={handleChange("location")}
               placeholder="location"
-              onBlur={() => setFieldTouched("location")}
+              // onBlur={() => setFieldTouched("location")}
             />
             {touched.location && errors.location && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -118,11 +116,12 @@ const ApplyDonation = ({ navigation }) => {
               </Text>
             )}
             <TextInput
+              label="contact"
               value={values.contact}
               style={inputStyle}
               onChangeText={handleChange("contact")}
               placeholder="contact"
-              onBlur={() => setFieldTouched("contact")}
+              // onBlur={() => setFieldTouched("contact")}
             />
             {touched.contact && errors.contact && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -130,35 +129,36 @@ const ApplyDonation = ({ navigation }) => {
               </Text>
             )}
             <TextInput
+              label="bloodType"
               value={values.bloodType}
               style={inputStyle}
               onChangeText={handleChange("bloodType")}
               placeholder="bloodType"
-              onBlur={() => setFieldTouched("bloodType")}
+              // onBlur={() => setFieldTouched("bloodType")}
             />
             {touched.bloodType && errors.bloodType && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
                 {errors.bloodType}
               </Text>
             )}
-            <TextInput
-              value={values.priority}
-              style={inputStyle}
-              onChangeText={handleChange("priority")}
-              placeholder="priority"
-              onBlur={() => setFieldTouched("priority")}
-            />
-            {touched.priority && errors.priority && (
-              <Text style={{ fontSize: 12, color: "#FF0D10" }}>
-                {errors.priority}
-              </Text>
-            )}
-            <Button
-              color={theme.colors.primary}
-              title="Donate"
-              disabled={!isValid}
-              onPress={handleSubmit}
-            />
+            <View
+              style={{
+                justifyContent: "center",
+                flexDirection: "row",
+              }}
+            >
+              <TouchableOpacity
+                style={styles.btn}
+                disabled={!isValid}
+                onPress={handleSubmit}
+              >
+                <Button
+                  color="white"
+                  title="Ready to donate!"
+                  disabled={!isValid}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         )}
       </Formik>
@@ -171,6 +171,24 @@ export default ApplyDonation;
 const styles = StyleSheet.create({
   formContainer: {
     padding: 50,
+  },
+  btn: {
+    height: 50,
+    width: 270,
+    backgroundColor: "#f72b2b",
+    borderRadius: 80,
+    marginLeft: 65,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 50,
+    marginTop: 30,
+    // position: "absolute",
+    // bottom: 320,
+  },
+  btnTxt: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 17,
   },
 });
 console.disableYellowBox = true;

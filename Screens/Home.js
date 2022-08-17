@@ -95,7 +95,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
         <Block card shadow color="white" style={styles.headerChart}>
           <Block row space="between" style={{ paddingHorizontal: 30 }}>
             <Block flex={false} row center>
-              <Text h1>{mocks.allRequests.length}</Text>
+              <Text h1>{mocks.allAvailables.length}</Text>
               <Text caption bold tertiary style={{ paddingHorizontal: 10 }}>
                 -5%
               </Text>
@@ -104,7 +104,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
               <Text caption bold primary style={{ paddingHorizontal: 10 }}>
                 +11%
               </Text>
-              <Text h1>{mocks.allAvailables.length}</Text>
+              <Text h1>{mocks.allRequests.length}</Text>
             </Block>
           </Block>
           <Block
@@ -159,6 +159,33 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
     );
   }
 
+  function renderAvailable(available) {
+    return (
+      <Block row card shadow color="white" style={styles.request}>
+        <Block
+          flex={0.15}
+          card
+          column
+          color="secondary"
+          style={styles.requestStatus}
+        >
+          <Block middle center>
+            <Text h2 white>
+              {available.bloodType}
+            </Text>
+          </Block>
+        </Block>
+        <Block flex={0.75} column middle>
+          <Text h3 style={{ paddingVertical: 3, fontSize: 15 }}>
+            {available.name}
+          </Text>
+          <Text caption semibold style={{ paddingVertical: 1, fontSize: 12 }}>
+            {available.age} , {available.gender} , {available.distance}km
+          </Text>
+        </Block>
+      </Block>
+    );
+  }
   function renderRequests() {
     return (
       <Block flex={0.33} column color="gray2" style={styles.requests}>
@@ -207,7 +234,7 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
                 navigation.navigate("Available", { available: donation })
               }
             >
-              {renderRequest(donation)}
+              {renderAvailable(donation)}
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -242,6 +269,13 @@ const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
           width: 50,
           height: 50,
           backgroundColor: theme.colors.white,
+          shadowColor: "black",
+          shadowOpacity: 5,
+          shadowRadius: 5,
+          shadowOffset: {
+            height: 3,
+            width: 3,
+          },
           alignItems: "center",
           justifyContent: "center",
         }}

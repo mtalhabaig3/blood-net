@@ -115,12 +115,6 @@ const Available = ({ navigation, route }) => {
               {available.bloodType}
             </Text>
           </View>
-          <View style={styles.row}>
-            <MaterialIcons name="priority-high" color="#f72b2b" size={20} />
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 16 }}>
-              {available.priority}
-            </Text>
-          </View>
         </View>
         <TouchableRipple
           style={styles.btn}

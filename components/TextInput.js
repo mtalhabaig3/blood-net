@@ -25,15 +25,15 @@ export default function TextInput({ errorText, description, ...props }) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginVertical: 12,
+    marginVertical: 6,
   },
   input: {
     backgroundColor: theme.colors.surface,
   },
   description: {
-    fontSize: 13,
+    fontSize: 12,
     color: theme.colors.secondary,
-    paddingTop: 8,
+    paddingTop: 6,
   },
   error: {
     fontSize: 13,

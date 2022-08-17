@@ -33,6 +33,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
   }
   useEffect(() => {
     LoadingFonts();
+    // mocks.allRequests.splice(8, 10);
   }, []);
 
   function renderChart() {
@@ -157,7 +158,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
 
   function renderRequests() {
     return (
-      <Block flex={0.4} column color="gray2" style={styles.requests}>
+      <Block flex={0.34} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
           <Text light>Recent Requests</Text>
           <TouchableOpacity
@@ -184,7 +185,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
 
   function renderAvaiables() {
     return (
-      <Block flex={0.28} column color="gray2" style={styles.requests2}>
+      <Block flex={0.29} column color="gray2" style={styles.requests2}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
           <Text light>Recent Donors</Text>
           <TouchableOpacity
@@ -285,7 +286,9 @@ const styles = StyleSheet.create({
   },
   requests2: {
     paddingHorizontal: 15,
+    paddingTop: 20,
     marginTop: -30,
+    paddingBottom: 15,
   },
   requestsHeader: {
     paddingHorizontal: 20,

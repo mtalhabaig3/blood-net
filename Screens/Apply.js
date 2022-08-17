@@ -13,6 +13,7 @@ import {
 import * as yup from "yup";
 import BackButton from "../components/BackButton";
 import { Formik } from "formik";
+import * as mocks from "../core/mocks";
 
 const Apply = ({ navigation }) => {
   const inputStyle = {
@@ -21,6 +22,22 @@ const Apply = ({ navigation }) => {
     padding: 12,
     marginBottom: 5,
   };
+
+  function changingObject(values) {
+    console.log(values);
+    const temp = { ...values };
+    console.log(temp);
+
+    temp.id = 9;
+    temp.distance = 44;
+    temp.time = 2;
+
+    console.log(temp);
+
+    mocks.allRequests.push(temp);
+    Alert.alert("done");
+  }
+
   return (
     <SafeAreaView>
       <Formik
@@ -33,7 +50,9 @@ const Apply = ({ navigation }) => {
           bloodType: "",
           priority: "",
         }}
-        onSubmit={(values) => Alert.alert(JSON.stringify(values))}
+        onSubmit={(values) => {
+          changingObject(values);
+        }}
         validationSchema={yup.object().shape({
           name: yup.string().required("Please, provide your name!"),
           age: yup.number().required().min(18).max(99),
@@ -84,7 +103,6 @@ const Apply = ({ navigation }) => {
               onChangeText={handleChange("gender")}
               placeholder="gender"
               onBlur={() => setFieldTouched("gender")}
-              secureTextEntry={true}
             />
             {touched.gender && errors.gender && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -97,7 +115,6 @@ const Apply = ({ navigation }) => {
               onChangeText={handleChange("location")}
               placeholder="location"
               onBlur={() => setFieldTouched("location")}
-              secureTextEntry={true}
             />
             {touched.location && errors.location && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -110,7 +127,6 @@ const Apply = ({ navigation }) => {
               onChangeText={handleChange("contact")}
               placeholder="contact"
               onBlur={() => setFieldTouched("contact")}
-              secureTextEntry={true}
             />
             {touched.contact && errors.contact && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -123,7 +139,6 @@ const Apply = ({ navigation }) => {
               onChangeText={handleChange("bloodType")}
               placeholder="bloodType"
               onBlur={() => setFieldTouched("bloodType")}
-              secureTextEntry={true}
             />
             {touched.bloodType && errors.bloodType && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -136,7 +151,6 @@ const Apply = ({ navigation }) => {
               onChangeText={handleChange("priority")}
               placeholder="priority"
               onBlur={() => setFieldTouched("priority")}
-              secureTextEntry={true}
             />
             {touched.priority && errors.priority && (
               <Text style={{ fontSize: 12, color: "#FF0D10" }}>
@@ -147,7 +161,7 @@ const Apply = ({ navigation }) => {
               color="#3740FE"
               title="Submit"
               disabled={!isValid}
-              onPress={() => console.log("submit pressed!")}
+              onPress={handleSubmit}
             />
           </View>
         )}

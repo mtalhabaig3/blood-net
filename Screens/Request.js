@@ -50,7 +50,7 @@ const Request = ({ navigation, route }) => {
               />
             )}
 
-            <View style={{ marginLeft: 20 }}>
+            <View>
               <Title
                 style={[
                   styles.title,

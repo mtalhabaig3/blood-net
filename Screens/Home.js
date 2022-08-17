@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 import * as Font from "expo-font";
 import { LineChart, Path } from "react-native-svg-charts";
 import { Line } from "react-native-svg";
@@ -15,8 +16,10 @@ import { Block, Text } from "../components";
 import * as theme from "../theme";
 import * as mocks from "../core/mocks";
 
-const Home = ({ chart, user, requests, navigation, donations }) => {
+const Home = ({ chart, user, allRequests, navigation, allAvailables }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  const isFocused = useIsFocused();
 
   function loadFonts() {
     return Font.loadAsync({
@@ -33,8 +36,8 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
   }
   useEffect(() => {
     LoadingFonts();
-    // mocks.allRequests.splice(8, 10);
-  }, []);
+    // mocks.allRequests.splice(8);
+  }, [isFocused]);
 
   function renderChart() {
     const LineShadow = ({ line }) => (
@@ -169,7 +172,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
           </TouchableOpacity>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {requests.map((request) => (
+          {allRequests.slice(0, 4).map((request) => (
             <TouchableOpacity
               activeOpacity={0.8}
               key={`request-${request.id}`}
@@ -196,7 +199,7 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
           </TouchableOpacity>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {donations.map((donation) => (
+          {allAvailables.slice(0, 3).map((donation) => (
             <TouchableOpacity
               activeOpacity={0.8}
               key={`donation-${donation.id}`}
@@ -255,8 +258,8 @@ const Home = ({ chart, user, requests, navigation, donations }) => {
 
 Home.defaultProps = {
   user: mocks.user,
-  requests: mocks.requests,
-  donations: mocks.donations,
+  allRequests: mocks.allRequests,
+  allAvailables: mocks.allAvailables,
   chart: mocks.chart,
 };
 

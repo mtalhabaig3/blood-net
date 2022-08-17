@@ -17,7 +17,7 @@ const Requests = ({ navigation, allRequests }) => {
     return (
       <Block flex={1} column color="gray2" style={styles.requests}>
         <Block flex={false} row space="between" style={styles.requestsHeader}>
-          <Text h1>Acceptors</Text>
+          <Text h1>Requests</Text>
           <TouchableOpacity activeOpacity={0.8}></TouchableOpacity>
         </Block>
         <ScrollView showsVerticalScrollIndicator={false}>

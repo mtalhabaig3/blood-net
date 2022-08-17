@@ -24,17 +24,13 @@ const Apply = ({ navigation }) => {
   };
 
   function changingObject(values) {
-    console.log(values);
     const temp = { ...values };
-    console.log(temp);
-
-    temp.id = 9;
+    temp.id = mocks.allRequests.length + 1;
     temp.distance = 44;
     temp.time = 2;
 
     console.log(temp);
-
-    mocks.allRequests.push(temp);
+    mocks.allRequests.unshift(temp);
     Alert.alert("done");
   }
 

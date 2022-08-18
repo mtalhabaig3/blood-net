@@ -33,8 +33,8 @@ const Option = ({ navigation }) => {
           justifyContent: "center",
         }}
       >
-        <Fontisto
-          name="blood"
+        <MaterialCommunityIcons
+          name="blood-bag"
           color={theme.colors.primary}
           size={theme.sizes.font * 4}
         />
@@ -57,8 +57,8 @@ const Option = ({ navigation }) => {
           justifyContent: "center",
         }}
       >
-        <MaterialCommunityIcons
-          name="blood-bag"
+        <Fontisto
+          name="blood"
           color={theme.colors.primary}
           size={theme.sizes.font * 4}
         />

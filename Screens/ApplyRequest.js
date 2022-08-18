@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   Button,
   Alert,
   View,
@@ -8,6 +7,8 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
+import { Block, Text } from "../components";
+
 import TextInput from "../components/TextInput";
 import * as yup from "yup";
 import BackButton from "../components/BackButton";
@@ -30,6 +31,9 @@ const ApplyRequest = ({ navigation }) => {
 
   return (
     <SafeAreaView>
+      <Text h2 black center>
+        Add Request to List
+      </Text>
       <Formik
         initialValues={{
           name: "",
@@ -184,7 +188,8 @@ const ApplyRequest = ({ navigation }) => {
 export default ApplyRequest;
 const styles = StyleSheet.create({
   formContainer: {
-    padding: 50,
+    paddingHorizontal: 50,
+    paddingVertical: 20,
   },
   btn: {
     height: 50,

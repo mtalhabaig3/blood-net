@@ -22,8 +22,8 @@ const ApplyRequest = ({ navigation }) => {
   function changingObject(values) {
     const temp = { ...values };
     temp.id = mocks.allRequests.length + 1;
-    temp.distance = 44;
-    temp.time = 2;
+    temp.distance = Math.floor(Math.random() * 30) + 10;
+    temp.time = Math.floor(Math.random() * 12) + 10;
     mocks.allRequests.unshift(temp);
     Alert.alert("done");
     navigation.pop(2);
@@ -173,6 +173,7 @@ const ApplyRequest = ({ navigation }) => {
                   color="white"
                   title="Set a Request!"
                   disabled={!isValid}
+                  onPress={handleSubmit}
                 />
               </TouchableOpacity>
             </View>

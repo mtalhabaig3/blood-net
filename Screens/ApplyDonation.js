@@ -22,8 +22,8 @@ const ApplyDonation = ({ navigation }) => {
   function changingObject(values) {
     const temp = { ...values };
     temp.id = mocks.allAvailables.length + 1;
-    temp.distance = 44;
-    temp.time = 2;
+    temp.distance = Math.floor(Math.random() * 30) + 10;
+    temp.time = Math.floor(Math.random() * 12) + 10;
 
     console.log(temp);
     mocks.allAvailables.unshift(temp);
@@ -160,6 +160,7 @@ const ApplyDonation = ({ navigation }) => {
                   color="white"
                   title="Ready to donate!"
                   disabled={!isValid}
+                  onPress={handleSubmit}
                 />
               </TouchableOpacity>
             </View>
